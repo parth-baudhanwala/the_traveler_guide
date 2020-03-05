@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -190,6 +191,34 @@
     <Compile Include="Migrations\202002191418138_init0.cs" />
     <Compile Include="Migrations\202002191418138_init0.Designer.cs">
       <DependentUpon>202002191418138_init0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002280637245_init2802.cs" />
+    <Compile Include="Migrations\202002280637245_init2802.Designer.cs">
+      <DependentUpon>202002280637245_init2802.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002291416529_init290220.cs" />
+    <Compile Include="Migrations\202002291416529_init290220.Designer.cs">
+      <DependentUpon>202002291416529_init290220.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011610158_init010320.cs" />
+    <Compile Include="Migrations\202003011610158_init010320.Designer.cs">
+      <DependentUpon>202003011610158_init010320.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011618285_init0103201.cs" />
+    <Compile Include="Migrations\202003011618285_init0103201.Designer.cs">
+      <DependentUpon>202003011618285_init0103201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011715028_init0103204.cs" />
+    <Compile Include="Migrations\202003011715028_init0103204.Designer.cs">
+      <DependentUpon>202003011715028_init0103204.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003022133530_init030320.cs" />
+    <Compile Include="Migrations\202003022133530_init030320.Designer.cs">
+      <DependentUpon>202003022133530_init030320.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003051018103_init050320.cs" />
+    <Compile Include="Migrations\202003051018103_init050320.Designer.cs">
+      <DependentUpon>202003051018103_init050320.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -254,21 +283,44 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Faculty\createstudent.cshtml" />
-    <Content Include="Views\Faculty\deletestudent.cshtml" />
-    <Content Include="Views\Faculty\viewstudent.cshtml" />
-    <Content Include="Views\Faculty\loginfaculty.cshtml" />
-    <Content Include="Views\Faculty\index.cshtml" />
+    <Content Include="Views\Faculty\LoginFaculty.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\studentlogin.cshtml" />
-    <Content Include="Views\Faculty\createsubject.cshtml" />
-    <Content Include="Views\Faculty\deletesubject.cshtml" />
-    <Content Include="Views\Faculty\viewsubject.cshtml" />
-    <Content Include="Views\Faculty\editsubject.cshtml" />
+    <Content Include="Views\Student\StudentLogin.cshtml" />
+    <Content Include="Views\Faculty\CreateSubject.cshtml" />
+    <Content Include="Views\Faculty\DeleteSubject.cshtml" />
+    <Content Include="Views\Faculty\ViewSubject.cshtml" />
+    <Content Include="Views\Faculty\EditSubject.cshtml" />
+    <Content Include="Views\Faculty\ViewLabs.cshtml" />
+    <Content Include="Views\Faculty\CreateLabs.cshtml" />
+    <Content Include="Views\Faculty\EditLabs.cshtml" />
+    <Content Include="Views\Faculty\DeleteLabs.cshtml" />
+    <Content Include="Views\Faculty\ViewAssignments.cshtml" />
+    <Content Include="Views\Faculty\CreateAssignments.cshtml" />
+    <Content Include="Views\Faculty\EditAssignments.cshtml" />
+    <Content Include="Views\Faculty\DeleteAssignments.cshtml" />
+    <Content Include="Views\Faculty\ViewStudent.cshtml" />
+    <Content Include="Views\Faculty\SelectStudents.cshtml" />
+    <Content Include="Views\Faculty\ViewEnrolledStudent.cshtml" />
+    <Content Include="Views\Faculty\EnrollStudent.cshtml" />
+    <Content Include="Views\Faculty\RenderDivision.cshtml" />
+    <Content Include="Views\Student\UploadFile.cshtml" />
+    <Content Include="Views\Faculty\RenderBatch.cshtml" />
+    <Content Include="Views\Faculty\CreateStudent.cshtml" />
+    <Content Include="Views\Faculty\DeleteStudent.cshtml" />
+    <Content Include="Views\Faculty\EditStudent.cshtml" />
+    <Content Include="Views\Student\ViewSubject.cshtml" />
+    <Content Include="Views\Student\ViewAssignments.cshtml" />
+    <Content Include="Views\Student\ViewLabs.cshtml" />
+    <Content Include="Views\Faculty\DeleteEnrolledStudent.cshtml" />
+    <Content Include="Views\Faculty\RenderBranch.cshtml" />
+    <Content Include="Views\Faculty\DeleteIndivisualEnrolledStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadFiles\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -295,6 +347,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002191418138_init0.resx">
       <DependentUpon>202002191418138_init0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002280637245_init2802.resx">
+      <DependentUpon>202002280637245_init2802.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002291416529_init290220.resx">
+      <DependentUpon>202002291416529_init290220.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011610158_init010320.resx">
+      <DependentUpon>202003011610158_init010320.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011618285_init0103201.resx">
+      <DependentUpon>202003011618285_init0103201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011715028_init0103204.resx">
+      <DependentUpon>202003011715028_init0103204.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003022133530_init030320.resx">
+      <DependentUpon>202003022133530_init030320.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051018103_init050320.resx">
+      <DependentUpon>202003051018103_init050320.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

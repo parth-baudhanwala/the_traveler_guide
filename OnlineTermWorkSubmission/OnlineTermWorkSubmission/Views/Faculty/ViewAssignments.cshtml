@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OnlineTermWorkSubmission.Models.Assignment>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>viewassignments</title>
+</head>
+<body>
+    <div class="jumbotron">
+
+        @Html.ActionLink("CREATE NEW ASSIGNMENT", "CreateAssignments", new { labId = ViewBag.lid, subId = ViewBag.sid, fid = ViewBag.id }) |
+        @Html.ActionLink("BACK TO LABS", "ViewLabs", new { sid = ViewBag.sid, id = ViewBag.id })
+
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Labs.lab_no) : @ViewBag.labno
+    </div>
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.assignment_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.assignment_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.assignment_enddate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.assignment_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.assignment_text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.assignment_enddate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAssignments", new { asgId = item.assignment_id, labId = ViewBag.lid, subId = ViewBag.sid, fid = ViewBag.id }) |
+                @Html.ActionLink("Delete", "DeleteAssignments", new { asgId = item.assignment_id, labId = ViewBag.lid, subId = ViewBag.sid, fid = ViewBag.id })
+            </td>
+        </tr>
+        }
+
+    </table>
+</body>
+</html>

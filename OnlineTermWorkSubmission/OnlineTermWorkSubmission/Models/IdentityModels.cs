@@ -38,7 +38,12 @@ namespace OnlineTermWorkSubmission.Models
         public virtual DbSet<Lab> Labs { get; set; }
 
         public virtual DbSet<Assignment> Assignments { get; set; }
+        
+        public virtual DbSet<Branch> Branches { get; set; }
 
+        public virtual DbSet<Division> Divisions { get; set; }
+
+        public virtual DbSet<Batch> Batches { get; set; }
 
         public static ApplicationDbContext Create()
         {
@@ -50,41 +55,99 @@ namespace OnlineTermWorkSubmission.Models
     public class Student
     {
         [Key]
-        public int student_id { get; set; }
+        [Display(Name = "Id")]
+        public int Student_Id { get; set; }
         [Required]
-        public string student_name { get; set; }
+        [Display(Name = "Student Name")]
+        public string Student_Name { get; set; }
         [Required]
-        public string student_email { get; set; }
+        [Display(Name = "Branch")]
+        public string Branch { get; set; }
         [Required]
-        public string student_address { get; set; }
+        [Display(Name = "Division")]
+        public string Division { get; set; }
+        [Required]
+        [Display(Name = "Batch")]
+        public string Batch { get; set; }
+        [Required]
+        [Display(Name = "Roll No")]
+        public int Roll_No { get; set; }
+        [Required]
+        [Display(Name = "Semester")]
+        public int Semester { get; set; }
+        [Required]
+        [Display(Name = "Email Id")]
+        public string Student_Email { get; set; }
         [Required]
         [DataType(DataType.PhoneNumber)]
-        public string student_contact { get; set; }
+        [Display(Name = "Phone Number")]
+        public string Student_Contact { get; set; }
         [Required]
-        public DateTime student_dob { get; set; }
+        [Display(Name = "Date Of Birth")]
+        public DateTime Student_Dob { get; set; }
         [Required]
-        public string student_password { get; set; }
+        [Display(Name = "Password")]
+        public string Student_Password { get; set; }
 
         public virtual ICollection<Subject> Subjects { get; set; }
 
 
     }
 
+    public class Branch
+    {
+        [Key]
+        public int Branch_Id { get; set; }
+        public string Branch_Name { get; set; }
+
+        public virtual ICollection<Division> Divisions { get; set; }
+    }
+
+    public class Division
+    {
+        [Key]
+        public int Division_Id { get; set; }
+        public string Division_Name { get; set; }
+
+        public int Branch_Id { get; set; }
+        [ForeignKey("Branch_Id")]
+        public virtual Branch Branches { get; set; }
+
+        public virtual ICollection<Batch> Batches { get; set; }
+    }
+
+    public class Batch
+    {
+        [Key]
+        public int Batch_Id { get; set; }
+        public string Batch_Name { get; set; }
+
+        public int Division_Id { get; set; }
+        [ForeignKey("Division_Id")]
+        public virtual Division Divisions { get; set; }
+    }
+
+    
     public class Faculty
     {
         [Key]
+        [Display(Name = "Id")]
         public int faculty_id { get; set; }
         [Required]
+        [Display(Name = "Facluty Name")]
         public string faculty_name { get; set; }
         [Required]
+        [Display(Name = "Email Id")]
         public string faculty_email { get; set; }
         [Required]
-
+        [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public string faculty_contact { get; set; }
         [Required]
+        [Display(Name = "Date Of Birth")]
         public DateTime faculty_dob { get; set; }
         [Required]
+        [Display(Name = "Password")]
         public string faculty_password { get; set; }
 
         public virtual ICollection<Subject> Subjects { get; set; }
@@ -94,9 +157,15 @@ namespace OnlineTermWorkSubmission.Models
     public class Subject
     {
         [Key]
+        [Display(Name = "Id")]
         public int subject_id { get; set; }
         [Required]
+        [Display(Name = "Subject Name")]
         public string subject_name { get; set; }
+
+        [Required]
+        [Display(Name = "Semester")]
+        public int semester { get; set; }
 
         public virtual ICollection<Faculty> Faculties { get; set; }
 
@@ -108,10 +177,13 @@ namespace OnlineTermWorkSubmission.Models
     public class Lab
     {
         [Key]
+        [Display(Name = "Id")]
         public int lab_id { get; set; }
         [Required]
+        [Display(Name = "Lab No")]
         public int lab_no { get; set; }
         [Required]
+        [Display(Name = "Date")]
         public DateTime lab_startdate { get; set; }
 
 
@@ -126,10 +198,20 @@ namespace OnlineTermWorkSubmission.Models
     public class Assignment
     {
         [Key]
+        [Display(Name = "Id")]
         public int assignment_id { get; set; }
+
         [Required]
+        [Display(Name = "Assignment No")]
+        public int assignment_no { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
         public string assignment_text { get; set; }
 
+        [Required]
+        [Display(Name = "End Date")]
+        public DateTime assignment_enddate { get; set; }
 
         public int lab_id { get; set; }
         [ForeignKey("lab_id")]
