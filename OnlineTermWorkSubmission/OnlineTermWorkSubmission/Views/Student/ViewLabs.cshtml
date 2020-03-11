@@ -12,14 +12,16 @@
     <title>ViewLabs</title>
 </head>
 <body>
-    <p>
-       
-    </p>
+    <div class="jumbotron">
+
+        @Html.ActionLink("BACK TO SUBJECTS", "ViewSubject", new { id = ViewBag.id })
+
+    </div>
+    <div class="h4">
+        <b>@Html.DisplayNameFor(model => model.Subjects.subject_name) : @ViewBag.subname</b>
+    </div>
     <table class="table">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Subjects.subject_name)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.lab_no)
             </th>
@@ -28,24 +30,22 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subjects.subject_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lab_no)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lab_startdate)
-            </td>
-            <td>
-               @Html.ActionLink("Assignments", "ViewAssignments", new { lid = item.lab_id, sid = ViewBag.sid, id = ViewBag.id })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lab_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lab_startdate)
+                </td>
+                <td>
+                    <b>@Html.ActionLink("View Assignments", "ViewAssignments", new { lid = item.lab_id, sid = ViewBag.sid, id = ViewBag.id })</b>
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

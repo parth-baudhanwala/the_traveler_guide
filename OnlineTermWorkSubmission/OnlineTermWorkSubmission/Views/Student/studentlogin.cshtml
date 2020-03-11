@@ -5,7 +5,7 @@
     ViewBag.Title = "studentlogin";
 }
 
-<h2>LOGIN AS A STUDENT</h2>
+<h3>LOGIN AS A STUDENT</h3>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -23,7 +23,7 @@
                         </div>
                     }
                 </fieldset>
-
+            <br />
                 <div class="form-group">
                     @Html.LabelFor(a => a.Student_Email, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     @Html.LabelFor(a => a.Student_Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(a => a.Student_Password, new { @class = "form-control" })
+                        @Html.PasswordFor(a => a.Student_Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(a => a.Student_Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
